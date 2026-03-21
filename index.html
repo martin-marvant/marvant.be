@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Martin Kwee — Solution Architect · Marvant</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Martin Kwee is a freelance Solution Architect based in Belgium, specialising in eHealth, social security and public sector platforms." />
+  <meta name="author" content="Martin Kwee" />
+  <link rel="canonical" href="https://marvant.be/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://marvant.be/" />
+  <meta property="og:title" content="Martin Kwee - Solution Architect · Marvant" />
+  <meta property="og:description" content="Freelance Solution Architect specialising in eHealth, social security and public sector platforms in Belgium." />
+  <meta property="og:locale" content="en_BE" />
+  <meta property="og:image" content="logo-met-text.jpg" />
+
+ 
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="marvant-logo-dark.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;1,300;1,400&family=Instrument+Sans:wght@400;500&family=Martian+Mono:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:      #0A0D0F;
+      --surface: #111518;
+      --border:  rgba(255,255,255,0.07);
+      --border2: rgba(255,255,255,0.12);
+      --text:    #E8E4DC;
+      --muted:   rgba(232,228,220,0.38);
+      --accent:  #4A7FB5;
+      --accent2: #C4964A;
+      --serif:   'Cormorant', Georgia, serif;
+      --sans:    'Instrument Sans', sans-serif;
+      --mono:    'Martian Mono', monospace;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    body::after {
+      content: ''; position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 9990;
+    }
+
+    ::-webkit-scrollbar { width: 3px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--accent); }
+
+    main {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    /* ── LEFT ── */
+    .left {
+      display: flex; flex-direction: column; justify-content: space-between;
+      padding: 4rem; border-right: 1px solid var(--border);
+      position: relative; overflow: hidden;
+    }
+    .left::before {
+      content: ''; position: absolute; inset: 0;
+      background-image:
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 100% 80% at 0% 50%, black 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .left-glow {
+      position: absolute; bottom: -20%; left: -20%;
+      width: 60vw; height: 60vw;
+      background: radial-gradient(ellipse at center,
+        rgba(74,127,181,0.07) 0%, rgba(74,127,181,0.02) 50%, transparent 70%);
+      pointer-events: none;
+    }
+    .left-top  { position: relative; z-index: 1; width: 100%; }
+    .left-bottom {
+      position: relative; z-index: 1; width: 100%;
+      padding-top: 2.5rem; border-top: 1px solid var(--border); margin-top: 2.5rem;
+    }
+
+
+      
+
+    .marvant-label {
+      display: inline-flex; align-items: center; gap: 0.9rem;
+      margin-bottom: 3rem;
+      opacity: 0; animation: fadeUp 0.7s 0.1s forwards;
+    }
+    .marvant-label span {
+      font-family: var(--mono); font-size: 0.75rem; font-weight: 300;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: rgba(232,228,220,0.5);
+    }
+    .footer-brand {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+    }
+    .footer-brand span {
+      font-family: var(--mono); font-size: 0.55rem; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--muted);
+    }
+
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 0.75rem;
+      font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 1.5rem;
+      opacity: 0; animation: fadeUp 0.7s 0.25s forwards;
+    }
+    .tag-dot {
+      width: 5px; height: 5px; border-radius: 50%; background: var(--accent);
+      animation: pulseBlue 2.5s infinite;
+    }
+    @keyframes pulseBlue {
+      0%,100% { box-shadow: 0 0 0 0 rgba(74,127,181,0.5); }
+      50%      { box-shadow: 0 0 0 6px rgba(74,127,181,0); }
+    }
+
+    .hero-name {
+      font-family: var(--serif); font-weight: 300;
+      font-size: clamp(4rem, 6vw, 7rem);
+      line-height: 0.95; letter-spacing: -0.02em; color: var(--text); width: 100%;
+      opacity: 0; animation: fadeUp 0.8s 0.4s forwards;
+    }
+    .hero-name-last {
+      font-style: italic; color: transparent;
+      -webkit-text-stroke: 1px rgba(232,228,220,0.4); display: block;
+    }
+
+    .hero-divider {
+      width: 100%; height: 1px;
+      background: linear-gradient(to right, var(--accent), transparent);
+      margin: 1.75rem 0;
+      opacity: 0; animation: fadeUp 0.7s 0.55s forwards;
+    }
+
+    .current-role {
+      display: flex; align-items: center; gap: 0.75rem;
+      border: 1px solid rgba(74,127,181,0.25); background: rgba(74,127,181,0.06);
+      padding: 0.6rem 1rem; margin-bottom: 2rem; width: 100%;
+      opacity: 0; animation: fadeUp 0.7s 0.62s forwards;
+    }
+    .current-role-dot {
+      width: 5px; height: 5px; border-radius: 50%; background: #28CA41;
+      animation: pulseGreen 2s infinite; flex-shrink: 0;
+    }
+    @keyframes pulseGreen {
+      0%,100% { box-shadow: 0 0 0 0 rgba(40,202,65,0.4); }
+      50%      { box-shadow: 0 0 0 5px rgba(40,202,65,0); }
+    }
+    .current-role-text {
+      font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.1em;
+      color: rgba(232,228,220,0.6); line-height: 1.5;
+    }
+    .current-role-text strong { color: var(--text); font-weight: 400; display: block; }
+
+    .hero-bio {
+      font-size: 0.95rem; line-height: 1.85; color: var(--muted); width: 100%;
+      margin-bottom: 2rem;
+      opacity: 0; animation: fadeUp 0.7s 0.72s forwards;
+    }
+    .hero-bio p + p { margin-top: 1rem; }
+    .hero-bio strong { color: var(--text); font-weight: 500; }
+
+    .cv-note {
+      font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.08em;
+      color: var(--muted); margin-bottom: 2.5rem;
+      opacity: 0; animation: fadeUp 0.7s 0.78s forwards;
+    }
+
+    .hero-actions { opacity: 0; animation: fadeUp 0.7s 0.85s forwards; }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.12em;
+      text-transform: uppercase; text-decoration: none;
+      padding: 0.85rem 1.75rem; transition: all 0.25s;
+    }
+    .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border2); }
+    .btn-outline:hover { border-color: rgba(255,255,255,0.35); transform: translateY(-2px); }
+
+    /* ── RIGHT ── */
+    .right {
+      display: flex; flex-direction: column; justify-content: space-between;
+      padding: 4rem; background: var(--surface); gap: 3rem;
+    }
+
+    .block-label {
+      font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--muted); margin-bottom: 1.25rem;
+      display: flex; align-items: center; gap: 1rem;
+    }
+    .block-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+    /* Timeline */
+    .timeline-block { opacity: 0; animation: fadeIn 0.9s 0.7s forwards; }
+
+    .timeline {
+      position: relative;
+      padding-left: 1.5rem;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute; left: 0; top: 0.4rem; bottom: 0.4rem;
+      width: 1px;
+      background: linear-gradient(to bottom, var(--accent), rgba(74,127,181,0.1));
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-bottom: 1.75rem;
+      display: grid;
+      grid-template-columns: 4rem 1fr;
+      gap: 0 1.25rem;
+      align-items: start;
+    }
+    .timeline-item:last-child { padding-bottom: 0; }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute; left: -1.5rem; top: 0.45rem;
+      width: 5px; height: 5px; border-radius: 50%;
+      background: var(--border2); border: 1px solid var(--border2);
+      transform: translateX(-2px);
+      transition: background 0.25s, border-color 0.25s;
+    }
+    .timeline-item:first-child::before {
+      background: var(--accent); border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(74,127,181,0.15);
+    }
+    .timeline-item:hover::before { background: var(--accent); border-color: var(--accent); }
+
+    .timeline-year {
+      font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.08em;
+      color: var(--muted); padding-top: 0.1rem; line-height: 1.4;
+    }
+    .timeline-year .year-end { display: block; color: rgba(232,228,220,0.18); }
+
+    .timeline-role { font-size: 0.85rem; color: var(--text); line-height: 1.3; margin-bottom: 0.2rem; }
+    .timeline-org { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.06em; color: var(--muted); }
+
+    /* Contact */
+    .contact-strip { opacity: 0; animation: fadeIn 0.9s 0.85s forwards; }
+    .contact-links { display: flex; flex-direction: column; }
+    .clink {
+      display: flex; align-items: center; gap: 1.25rem;
+      padding: 0.9rem 0; border-bottom: 1px solid var(--border);
+      text-decoration: none; transition: padding-left 0.25s;
+    }
+    .clink:last-child { border-bottom: none; }
+    .clink:hover { padding-left: 0.4rem; }
+    .cl-key { font-family: var(--mono); font-size: 0.56rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); width: 4.5rem; flex-shrink: 0; }
+    .cl-val { font-size: 0.85rem; color: var(--text); flex: 1; }
+    .cl-arr { color: var(--border2); font-size: 0.75rem; transition: color 0.25s, transform 0.25s; }
+    .clink:hover .cl-arr { color: var(--accent); transform: translateX(3px); }
+
+    /* Meta */
+    .meta-block { opacity: 0; animation: fadeIn 0.9s 1s forwards; }
+    .meta-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+      background: var(--border); border: 1px solid var(--border);
+    }
+    .meta-cell {
+      background: var(--bg); padding: 0.9rem 1.2rem;
+      display: flex; flex-direction: column; gap: 0.25rem;
+    }
+    .meta-key { font-family: var(--mono); font-size: 0.52rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+    .meta-val { font-size: 0.8rem; color: var(--text); }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border); padding: 1.1rem 4rem;
+      display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 1rem;
+    }
+    footer span { font-family: var(--mono); font-size: 0.55rem; letter-spacing: 0.1em; color: var(--muted); }
+    footer span:last-child { text-align: right; }
+
+    .tegenlicht-link {
+      font-family: var(--mono); font-size: 0.55rem; letter-spacing: 0.1em;
+      color: var(--muted); text-decoration: none;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      transition: color 0.3s; justify-content: center;
+    }
+    .tegenlicht-link:hover { color: var(--accent2); }
+    .tegenlicht-link::before { content: '◐'; font-size: 0.7rem; color: var(--accent2); opacity: 0.5; transition: opacity 0.3s; }
+    .tegenlicht-link:hover::before { opacity: 1; }
+
+    @keyframes fadeUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+    @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+    @media (max-width: 1024px) {
+      main { grid-template-columns: 1fr; }
+      .left { border-right: none; border-bottom: 1px solid var(--border); padding: 3rem 2.5rem; }
+      .right { padding: 3rem 2.5rem; }
+      .left-bottom { margin-top: 2rem; padding-top: 2rem; }
+      footer { padding: 1rem 2.5rem; grid-template-columns: 1fr; gap: 0.5rem; text-align: center; }
+      footer span:last-child { text-align: center; }
+      .tegenlicht-link { justify-content: center; }
+    }
+    @media (max-width: 600px) {
+      .left, .right { padding: 2.5rem 1.75rem; }
+      .hero-name { font-size: 3.5rem; }
+      .meta-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <main>
+
+    <div class="left">
+      <div class="left-glow"></div>
+
+      <div class="left-top">
+        <div class="marvant-label">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="40" height="40" aria-label="Marvant">
+            <rect width="120" height="120" fill="#0A0D0F"/>
+              <rect x="18" y="64" width="20" height="36" fill="#4A7FB5"/>
+              <polygon points="46,44 60,68 74,44 74,100 46,100" fill="#4A7FB5"/>
+              <rect x="82" y="20" width="20" height="80" fill="#4A7FB5"/>
+            </svg>
+          </svg>
+          <span>Marvant</span>
+        </div>
+
+        <h1 class="hero-name">
+          Martin
+          <span class="hero-name-last">Kwee</span>
+        </h1>
+
+        <div class="hero-divider"></div>
+
+        <div class="current-role">
+          <span class="current-role-dot"></span>
+          <span class="current-role-text">
+            Currently
+            <strong>Solution Architect</strong>
+            Smals / Vlaamse Overheid, Departement Zorg
+          </span>
+        </div>
+
+        <div class="hero-bio">
+          <p>Twenty years working at the intersection of development and architecture with a deliberate focus on <strong>eHealth, social security, and the public sector.</strong> Not by accident, but because I want to work on things that matter.</p>
+          <p>I bridge the gap between complex policy and working solutions. I'm equally comfortable discussing strategy with decision-makers as I am guiding a technical team through an architectural challenge. For me, <strong>architecture only succeeds when the team understands the why.</strong></p>
+        </div>
+
+        <p class="cv-note">CV available on request. Get in touch via email or LinkedIn</p>
+
+        <div class="hero-actions">
+          <a href="https://linkedin.com/in/martinkwee" target="_blank" class="btn btn-outline">LinkedIn →</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="right">
+
+      <div class="timeline-block">
+        <div class="block-label">Career</div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-year">2026<span class="year-end">now</span></div>
+            <div class="timeline-content">
+              <div class="timeline-role">Owner & Solution Architect</div>
+              <div class="timeline-org">Marvant BV</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">2016<span class="year-end">now</span></div>
+            <div class="timeline-content">
+              <div class="timeline-role">Solution Architect</div>
+              <div class="timeline-org">Smals — Health & Care</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">2016<span class="year-end">2026</span></div>
+            <div class="timeline-content">
+              <div class="timeline-role">Solution Architect & Competence Lead</div>
+              <div class="timeline-org">Ordina / Sopra Steria</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">2013<span class="year-end">2016</span></div>
+            <div class="timeline-content">
+              <div class="timeline-role">Technical Designer</div>
+              <div class="timeline-org">Cegeka</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">2010<span class="year-end">2013</span></div>
+            <div class="timeline-content">
+              <div class="timeline-role">Software Engineer & Tech Lead</div>
+              <div class="timeline-org">HealthConnect / Corilus</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">2005<span class="year-end">2010</span></div>
+            <div class="timeline-content">
+              <div class="timeline-role">Software Engineer & Tech Lead</div>
+              <div class="timeline-org">Accenture</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-strip">
+        <div class="block-label">Contact</div>
+        <div class="contact-links">
+          <a href="#" class="clink" id="emailLink">
+            <span class="cl-key">Email</span>
+            <span class="cl-val" id="emailVal">—</span>
+            <span class="cl-arr">→</span>
+          </a>
+          <a href="https://linkedin.com/in/martinkwee" target="_blank" class="clink">
+            <span class="cl-key">LinkedIn</span>
+            <span class="cl-val">linkedin.com/in/martinkwee</span>
+            <span class="cl-arr">→</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-brand">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="20" height="20" aria-label="Marvant">
+        <rect width="120" height="120" fill="#0A0D0F"/>
+        <rect x="18" y="68" width="22" height="32" fill="#4A7FB5" opacity="0.6"/>
+        <polygon points="48,44 60,68 72,44 72,100 48,100" fill="#4A7FB5" opacity="0.6"/>
+        <rect x="80" y="20" width="22" height="80" fill="#4A7FB5" opacity="0.6"/>
+      </svg>
+      <span>Marvant BV · BE 1035.785.893</span>
+    </div>
+    <a href="https://tegenlicht.be" target="_blank" class="tegenlicht-link">
+      Martin as photographer · tegenlicht.be
+    </a>
+    <span>© 2026 Marvant</span>
+  </footer>
+
+  <script>
+    (function() {
+      const parts = ['bWFydGlu', 'Lmt3ZWVAbWFydmFudA==', 'LmJl'];
+      function getEmail() { return parts.map(s => atob(s)).join(''); }
+      document.addEventListener('DOMContentLoaded', function() {
+        const link = document.getElementById('emailLink');
+        const val  = document.getElementById('emailVal');
+        if (val) val.textContent = 'click to reveal';
+        if (link) {
+          link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const email = getEmail();
+            if (val) val.textContent = email;
+            link.href = 'mailto:' + email;
+            window.location.href = 'mailto:' + email;
+          });
+        }
+      });
+    })();
+  </script>
+
+</body>
+</html>
