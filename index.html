@@ -6,38 +6,112 @@
   <title>Marvant · Martin Kwee — Solution Architect</title>
 
   <!-- SEO -->
-  <meta name="description" content="Martin Kwee is a freelance Solution Architect based in Belgium, specialising in eHealth, social security and public sector platforms." />
+  <meta name="description" content="Martin Kwee — freelance Solution Architect specializing in eHealth, social security & public sector platforms. 20+ years designing enterprise solutions." />
+  <meta name="keywords" content="solution architect, eHealth, social security, public sector, Belgium" />
   <meta name="author" content="Martin Kwee" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <link rel="canonical" href="https://marvant.be/" />
+  <link rel="sitemap" type="application/xml" href="https://marvant.be/sitemap.xml" />
 
-  <!-- Open Graph -->
+  <!-- Open Graph & Social -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://marvant.be/" />
-  <meta property="og:title" content="Marvant · Martin Kwee - Solution Architect" />
-  <meta property="og:description" content="Freelance Solution Architect specialising in eHealth, social security and public sector platforms in Belgium." />
+  <meta property="og:title" content="Marvant - Martin Kwee — Solution Architect" />
+  <meta property="og:description" content="Freelance Solution Architect specializing in eHealth, social security & public sector platforms. 20+ years experience." />
   <meta property="og:locale" content="en_BE" />
-  <meta property="og:image" content="/logo-met-text.jpg" />
+  <meta property="og:image" content="https://marvant.be/logo-met-text.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Martin Kwee — Solution Architect" />
+  <meta name="twitter:description" content="Freelance Solution Architect specializing in eHealth, social security & public sector platforms." />
+  <meta name="twitter:image" content="https://marvant.be/logo-met-text.jpg" />
 
  
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="marvant-logo-dark.svg" />
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Martin Kwee",
+    "url": "https://marvant.be",
+    "jobTitle": "Solution Architect",
+    "email": "martin.kwee@marvant.be",
+    "sameAs": "https://linkedin.com/in/martinkwee",
+    "knowsAbout": ["Solution Architecture", "eHealth", "Social Security", "Public Sector", "Enterprise Architecture"],
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Marvant BV",
+      "url": "https://marvant.be",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "BE"
+      }
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Marvant BV",
+    "url": "https://marvant.be",
+    "logo": "https://marvant.be/marvant-logo-dark.svg",
+    "description": "Freelance Solution Architecture specializing in eHealth, social security and public sector platforms",
+    "contact": {
+      "@type": "ContactPoint",
+      "email": "martin.kwee@marvant.be",
+      "url": "https://marvant.be"
+    },
+    "sameAs": "https://linkedin.com/in/martinkwee",
+    "founder": {
+      "@type": "Person",
+      "name": "Martin Kwee"
+    }
+  }
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;1,300;1,400&family=Instrument+Sans:wght@400;500&family=Martian+Mono:wght@300;400&display=swap" rel="stylesheet" />
   <style>
     :root {
+      /* Neutrals */
       --bg:      #0A0D0F;
+      --deep:    #0D1013;
       --surface: #111518;
       --border:  rgba(255,255,255,0.07);
       --border2: rgba(255,255,255,0.12);
+      --cream:   #F0EDE8;
       --text:    #E8E4DC;
+      --stone:   rgba(232,228,220,0.62);
       --muted:   rgba(232,228,220,0.38);
-      --accent:  #4A7FB5;
-      --accent2: #C4964A;
-      --serif:   'Cormorant', Georgia, serif;
-      --sans:    'Instrument Sans', sans-serif;
-      --mono:    'Martian Mono', monospace;
+      --slate:   rgba(232,228,220,0.28);
+      --dim:     rgba(232,228,220,0.18);
+
+      /* Accents */
+      --accent:    #4A7FB5;
+      --accent-dk: #2D5F8A;
+      --accent-lt: #7BA7CC;
+      --accent2:   #C4964A;
+
+      /* Status */
+      --status-active: #28CA41;
+
+      /* Spacing */
+      --gap:      3px;
+      --pad-h:    clamp(24px, 5vw, 80px);
+      --pad-h-sm: 24px;
+
+      /* Typography */
+      --serif: 'Cormorant', Georgia, serif;
+      --sans:  'Instrument Sans', sans-serif;
+      --mono:  'Martian Mono', monospace;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -52,6 +126,14 @@
       flex-direction: column;
     }
 
+    /* ── TYPOGRAPHY SEMANTIC CLASSES ── */
+    .text-body         { font-family: var(--sans);  font-size: 0.95rem; line-height: 1.85; }
+    .text-small        { font-family: var(--sans);  font-size: 0.88rem; line-height: 1.72; }
+    .text-label-eyebrow{ font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.32em; text-transform: uppercase; color: var(--accent); }
+    .text-label-section{ font-family: var(--mono); font-size: 0.52rem; letter-spacing: 0.22em; text-transform: uppercase; }
+    .text-label-meta   { font-family: var(--mono); font-size: 0.50rem; letter-spacing: 0.20em; text-transform: uppercase; }
+    .text-label-micro  { font-family: var(--mono); font-size: 0.48rem; letter-spacing: 0.18em; text-transform: uppercase; }
+
     body::after {
       content: ''; position: fixed; inset: 0;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
@@ -62,6 +144,16 @@
     ::-webkit-scrollbar-track { background: var(--bg); }
     ::-webkit-scrollbar-thumb { background: var(--accent); }
 
+    #scroll-line {
+      position: fixed;
+      top: 0; left: 0;
+      height: 1px;
+      width: 0%;
+      background: linear-gradient(to right, var(--accent), var(--accent-lt));
+      z-index: 700;
+      pointer-events: none;
+    }
+
     main {
       flex: 1;
       display: grid;
@@ -71,7 +163,7 @@
     /* ── LEFT ── */
     .left {
       display: flex; flex-direction: column; justify-content: space-between;
-      padding: 4rem; border-right: 1px solid var(--border);
+      padding: var(--pad-h); border-right: 1px solid var(--border);
       position: relative; overflow: hidden;
     }
     .left::before {
@@ -87,14 +179,10 @@
       position: absolute; bottom: -20%; left: -20%;
       width: 60vw; height: 60vw;
       background: radial-gradient(ellipse at center,
-        rgba(74,127,181,0.07) 0%, rgba(74,127,181,0.02) 50%, transparent 70%);
+        rgba(74,127,181,0.07) 0%, rgba(74,127,181,0.02) 50%, transparent 70%); /* 74,127,181 = --accent #4A7FB5 */
       pointer-events: none;
     }
     .left-top  { position: relative; z-index: 1; width: 100%; }
-    .left-bottom {
-      position: relative; z-index: 1; width: 100%;
-      padding-top: 2.5rem; border-top: 1px solid var(--border); margin-top: 2.5rem;
-    }
 
 
       
@@ -107,7 +195,7 @@
     .marvant-label span {
       font-family: var(--mono); font-size: 0.75rem; font-weight: 300;
       letter-spacing: 0.22em; text-transform: uppercase;
-      color: rgba(232,228,220,0.5);
+      color: var(--stone);
     }
     .footer-brand {
       display: inline-flex; align-items: center; gap: 0.6rem;
@@ -128,6 +216,7 @@
       animation: pulseBlue 2.5s infinite;
     }
     @keyframes pulseBlue {
+      /* 74,127,181 = --accent #4A7FB5 */
       0%,100% { box-shadow: 0 0 0 0 rgba(74,127,181,0.5); }
       50%      { box-shadow: 0 0 0 6px rgba(74,127,181,0); }
     }
@@ -135,12 +224,12 @@
     .hero-name {
       font-family: var(--serif); font-weight: 300;
       font-size: clamp(4rem, 6vw, 7rem);
-      line-height: 0.95; letter-spacing: -0.02em; color: var(--text); width: 100%;
+      line-height: 0.95; letter-spacing: -0.02em; color: var(--cream); width: 100%;
       opacity: 0; animation: fadeUp 0.8s 0.4s forwards;
     }
     .hero-name-last {
       font-style: italic; color: transparent;
-      -webkit-text-stroke: 1px rgba(232,228,220,0.4); display: block;
+      -webkit-text-stroke: 1px rgba(240,237,232,0.35); display: block; /* --cream #F0EDE8 */
     }
 
     .hero-divider {
@@ -152,21 +241,22 @@
 
     .current-role {
       display: flex; align-items: center; gap: 0.75rem;
-      border: 1px solid rgba(74,127,181,0.25); background: rgba(74,127,181,0.06);
+      border: 1px solid rgba(74,127,181,0.25); background: rgba(74,127,181,0.06); /* 74,127,181 = --accent */
       padding: 0.6rem 1rem; margin-bottom: 2rem; width: 100%;
       opacity: 0; animation: fadeUp 0.7s 0.62s forwards;
     }
     .current-role-dot {
-      width: 5px; height: 5px; border-radius: 50%; background: #28CA41;
+      width: 5px; height: 5px; border-radius: 50%; background: var(--status-active);
       animation: pulseGreen 2s infinite; flex-shrink: 0;
     }
     @keyframes pulseGreen {
+      /* 40,202,65 = --status-active #28CA41 */
       0%,100% { box-shadow: 0 0 0 0 rgba(40,202,65,0.4); }
       50%      { box-shadow: 0 0 0 5px rgba(40,202,65,0); }
     }
     .current-role-text {
       font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.1em;
-      color: rgba(232,228,220,0.6); line-height: 1.5;
+      color: var(--stone); line-height: 1.5;
     }
     .current-role-text strong { color: var(--text); font-weight: 400; display: block; }
 
@@ -190,15 +280,15 @@
       display: inline-flex; align-items: center; gap: 0.6rem;
       font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.12em;
       text-transform: uppercase; text-decoration: none;
-      padding: 0.85rem 1.75rem; transition: all 0.25s;
+      padding: 0.85rem 1.75rem; transition: border-color 0.25s, color 0.25s;
     }
     .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border2); }
-    .btn-outline:hover { border-color: rgba(255,255,255,0.35); transform: translateY(-2px); }
+    .btn-outline:hover { border-color: var(--accent2); color: var(--accent2); }
 
     /* ── RIGHT ── */
     .right {
       display: flex; flex-direction: column; justify-content: space-between;
-      padding: 4rem; background: var(--surface); gap: 3rem;
+      padding: var(--pad-h); background: var(--surface); gap: 3rem;
     }
 
     .block-label {
@@ -207,6 +297,9 @@
       display: flex; align-items: center; gap: 1rem;
     }
     .block-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+    /* Meta (unused — no HTML elements) */
+    /* .meta-block, .meta-grid, .meta-cell, .meta-key, .meta-val removed */
 
     /* Timeline */
     .timeline-block { opacity: 0; animation: fadeIn 0.9s 0.7s forwards; }
@@ -219,7 +312,7 @@
       content: '';
       position: absolute; left: 0; top: 0.4rem; bottom: 0.4rem;
       width: 1px;
-      background: linear-gradient(to bottom, var(--accent), rgba(74,127,181,0.1));
+      background: linear-gradient(to bottom, var(--accent), rgba(74,127,181,0.08)); /* 74,127,181 = --accent */
     }
 
     .timeline-item {
@@ -242,7 +335,7 @@
     }
     .timeline-item:first-child::before {
       background: var(--accent); border-color: var(--accent);
-      box-shadow: 0 0 0 3px rgba(74,127,181,0.15);
+      box-shadow: 0 0 0 3px rgba(74,127,181,0.15); /* --accent glow */
     }
     .timeline-item:hover::before { background: var(--accent); border-color: var(--accent); }
 
@@ -250,7 +343,7 @@
       font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.08em;
       color: var(--muted); padding-top: 0.1rem; line-height: 1.4;
     }
-    .timeline-year .year-end { display: block; color: rgba(232,228,220,0.18); }
+    .timeline-year .year-end { display: block; color: var(--dim); }
 
     .timeline-role { font-size: 0.85rem; color: var(--text); line-height: 1.3; margin-bottom: 0.2rem; }
     .timeline-org { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.06em; color: var(--muted); }
@@ -260,32 +353,23 @@
     .contact-links { display: flex; flex-direction: column; }
     .clink {
       display: flex; align-items: center; gap: 1.25rem;
-      padding: 0.9rem 0; border-bottom: 1px solid var(--border);
-      text-decoration: none; transition: padding-left 0.25s;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--border);
+      border-left: 2px solid transparent;
+      padding-left: 0;
+      text-decoration: none;
+      transition: border-color 0.25s, padding-left 0.25s;
     }
     .clink:last-child { border-bottom: none; }
-    .clink:hover { padding-left: 0.4rem; }
+    .clink:hover { border-left-color: var(--accent); padding-left: 0.75rem; }
     .cl-key { font-family: var(--mono); font-size: 0.56rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); width: 4.5rem; flex-shrink: 0; }
     .cl-val { font-size: 0.85rem; color: var(--text); flex: 1; }
     .cl-arr { color: var(--border2); font-size: 0.75rem; transition: color 0.25s, transform 0.25s; }
-    .clink:hover .cl-arr { color: var(--accent); transform: translateX(3px); }
-
-    /* Meta */
-    .meta-block { opacity: 0; animation: fadeIn 0.9s 1s forwards; }
-    .meta-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
-      background: var(--border); border: 1px solid var(--border);
-    }
-    .meta-cell {
-      background: var(--bg); padding: 0.9rem 1.2rem;
-      display: flex; flex-direction: column; gap: 0.25rem;
-    }
-    .meta-key { font-family: var(--mono); font-size: 0.52rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
-    .meta-val { font-size: 0.8rem; color: var(--text); }
+    .clink:hover .cl-arr { color: var(--accent2); transform: translateX(3px); }
 
     /* Footer */
     footer {
-      border-top: 1px solid var(--border); padding: 1.1rem 4rem;
+      border-top: 1px solid var(--border); padding: 1.1rem var(--pad-h);
       display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 1rem;
     }
     footer span { font-family: var(--mono); font-size: 0.55rem; letter-spacing: 0.1em; color: var(--muted); }
@@ -301,26 +385,46 @@
     .tegenlicht-link::before { content: '◐'; font-size: 0.7rem; color: var(--accent2); opacity: 0.5; transition: opacity 0.3s; }
     .tegenlicht-link:hover::before { opacity: 1; }
 
+    /* Removed: .meta-block, .meta-grid, .meta-cell, .meta-key, .meta-val, .left-bottom (dead CSS) */
+
     @keyframes fadeUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
     @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
 
+    @media (prefers-reduced-motion: reduce) {
+      .marvant-label, .hero-tag, .hero-name, .hero-divider,
+      .current-role, .hero-bio, .cv-note, .hero-actions,
+      .timeline-block, .contact-strip {
+        opacity: 1; animation: none;
+      }
+      .tag-dot, .current-role-dot { animation: none; }
+    }
+
     @media (max-width: 1024px) {
       main { grid-template-columns: 1fr; }
-      .left { border-right: none; border-bottom: 1px solid var(--border); padding: 3rem 2.5rem; }
-      .right { padding: 3rem 2.5rem; }
-      .left-bottom { margin-top: 2rem; padding-top: 2rem; }
-      footer { padding: 1rem 2.5rem; grid-template-columns: 1fr; gap: 0.5rem; text-align: center; }
+      .left { border-right: none; border-bottom: 1px solid var(--border); padding: 3rem var(--pad-h-sm); }
+      .right { padding: 3rem var(--pad-h-sm); }
+      footer { padding: 1rem var(--pad-h-sm); grid-template-columns: 1fr; gap: 0.5rem; text-align: center; }
       footer span:last-child { text-align: center; }
       .tegenlicht-link { justify-content: center; }
     }
     @media (max-width: 600px) {
-      .left, .right { padding: 2.5rem 1.75rem; }
+      .left, .right { padding: 2rem var(--pad-h-sm); }
       .hero-name { font-size: 3.5rem; }
-      .meta-grid { grid-template-columns: 1fr; }
     }
   </style>
+  <script>
+    if (window.location.hostname === 'marvant.be') {
+      const script = document.createElement('script');
+      script.defer = true;
+      script.src = 'https://cloud.umami.is/script.js';
+      script.setAttribute('data-website-id', '7c9174f6-2992-4dd7-8274-b385f05e2986');
+      document.head.appendChild(script);
+    }
+  </script>
 </head>
 <body>
+
+  <div id="scroll-line" aria-hidden="true"></div>
 
   <main>
 
@@ -350,7 +454,7 @@
           <span class="current-role-dot"></span>
           <span class="current-role-text">
             Currently
-            <strong>Solution Architect</strong>
+            <strong>Domain Architect</strong>
             Smals / Vlaamse Overheid, Departement Zorg
           </span>
         </div>
@@ -378,14 +482,14 @@
             <div class="timeline-year">2026<span class="year-end">now</span></div>
             <div class="timeline-content">
               <div class="timeline-role">Owner & Solution Architect</div>
-              <div class="timeline-org">Marvant BV</div>
+              <div class="timeline-org">Marvant</div>
             </div>
           </div>
           <div class="timeline-item">
             <div class="timeline-year">2016<span class="year-end">now</span></div>
             <div class="timeline-content">
-              <div class="timeline-role">Solution Architect</div>
-              <div class="timeline-org">Smals — Health & Care</div>
+              <div class="timeline-role">Domain Architect</div>
+              <div class="timeline-org">Smals — Health & Care division</div>
             </div>
           </div>
           <div class="timeline-item">
@@ -472,6 +576,18 @@
           });
         }
       });
+    })();
+  </script>
+
+  <script>
+    (function() {
+      var line = document.getElementById('scroll-line');
+      if (!line) return;
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { line.style.display = 'none'; return; }
+      window.addEventListener('scroll', function() {
+        var pct = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+        line.style.width = pct + '%';
+      }, { passive: true });
     })();
   </script>
 
