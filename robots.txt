@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+Disallow: /marvant-brand-reference.html
+Disallow: /marvant-signature.html
+
+Sitemap: https://marvant.be/sitemap.xml
+
+# Specific crawl delay for aggressive bots
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
